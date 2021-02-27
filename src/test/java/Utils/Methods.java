@@ -1,5 +1,6 @@
 package Utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,5 +29,9 @@ public class Methods {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(driver -> elementList.size() > 0);
 
+    }
+    public void waitUntilElementClicableBy(By element) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 }
