@@ -2,6 +2,7 @@ package Pages;
 
 import Utils.DriverMenager;
 import Utils.Methods;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,25 +17,29 @@ public class Page1 {
 
     private WebDriver driver = DriverMenager.getDriver();
     private Methods methods = new Methods(driver);
-
+    private Logger log = Logger.getLogger(Page1.class);
 
     public Page1(){
         PageFactory.initElements(driver,this);
         this.methods = methods;
     }
     public void getAllegroMainPage(){
+        log.info("Open page allegro");
         driver.get("https://allegro.pl");
     }
     public void acceptPrivatyInfo(){
+        log.info("Acceptance of the privacy policy");
         methods.waitUntilElementClicableBy(buttonAccept);
         driver.findElement(buttonAccept).click();
 
     }
     public void setSearchItemAndFind(String item){
+        log.info("Typing the iPhone you are looking for");
         methods.waitUntilElementClicableBy(inputSearch);
         driver.findElement(inputSearch).clear();
         driver.findElement(inputSearch).sendKeys(item);
         methods.waitUntilElementClicableBy(buttonSearch);
+        log.info("Clicking the search button");
         driver.findElement(buttonSearch).click();
     }
 

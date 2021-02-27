@@ -2,12 +2,17 @@ package steps;
 
 import Pages.Page1;
 import Pages.Page2;
+import Pages.Page3;
 import Utils.BaseTest;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
+
+import java.io.IOException;
 
 public class allegroSteps {
 
@@ -33,20 +38,33 @@ public class allegroSteps {
 
     }
     @And("The user selects the search criteria")
-    public void cossd(){
+    public void userSelectSortPrice() throws InterruptedException {
         Page2 page2 = new Page2();
         page2.setSortSelect("cena: od najwyższej");
+        page2.setCheckboxSecendHendItem();
 
     }
     @And("The user selects the first product from the list")
-    public void coss2d(){
+    public void userClickCheckboxSecendHand(){
+        Page2 page2 = new Page2();
+        page2.choseFirstElementFromList();
 
     }
     @Then("The user verifies whether the name in the offer matches the name of the first item on the list")
 
-        public void coss2d2(){
-        System.out.println("cos");
+    public void assertIphonName(){
+        Page3 page3 = new Page3();
+        String TX = "Smartfon Apple iPhone XS Max 4 GB / 64 GB czarny";
+        String textIphon = page3.getTextNameIphone();
+        Assert.assertEquals(TX,textIphon);
+
         }
+
+    @After
+    public void thearDown() throws IOException {
+        System.out.println("Quit all open pages");
+        BaseTest.thearDown();
+    }
     }
 
 
