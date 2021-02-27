@@ -19,7 +19,10 @@ public class Methods {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
-
+    public void waitUntilElementVisibleBy(By element) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf((WebElement) element));
+    }
     public void waitUntilElementClicable(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(element));

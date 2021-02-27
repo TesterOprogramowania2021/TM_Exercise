@@ -1,6 +1,7 @@
 package steps;
 
 import Pages.Page1;
+import Pages.Page2;
 import Utils.BaseTest;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -33,6 +34,8 @@ public class allegroSteps {
     }
     @And("The user selects the search criteria")
     public void cossd(){
+        Page2 page2 = new Page2();
+        page2.setSortSelect("cena: od najwyższej");
 
     }
     @And("The user selects the first product from the list")
