@@ -10,6 +10,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"pretty","json:target/cucumber.json"},
         features = "src/test/java/featureFiles/nbpAPI.feature",
         glue = {"stepsAPI"},
-        tags = {"@Test2"})
+        tags = {"@Test3"})
 public class RunApiTests {
 }
