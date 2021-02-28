@@ -9,5 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/java/featureFiles/allegroTest.feature",
         glue = {"steps"},
         tags = {"@Test"})
+
+
 public class RunCucumberTest {
 }
